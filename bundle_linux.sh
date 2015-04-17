@@ -30,13 +30,13 @@ pushd $BUNDLE_DIR
 cp -R ../media .
 
 mkdir bin
-cp ../bin/ld24warmup bin
+cp ../bin/pong3d bin
 cd bin
-../../tak/tools/bundleelf/bundleelf ld24warmup
+../../tak/tools/bundleelf/bundleelf pong3d
 cd ..
 
 
-ELFLOADER=$(readelf -l ./bin/ld24warmup | grep "program interpreter" | cut -d':' -f2 | cut -d']' -f1 | cut -d' ' -f2)
+ELFLOADER=$(readelf -l ./bin/pong3d | grep "program interpreter" | cut -d':' -f2 | cut -d']' -f1 | cut -d' ' -f2)
 ELFLOADERNAME=$(echo /lib64/ld-linux-x86-64.so.2 | sed 's/\/lib64\///')
 
 cp $ELFLOADER bin/
@@ -44,7 +44,7 @@ cp $ELFLOADER bin/
 rm bin/libGL.so.*
 rm bin/libGLU.so.*
 
-echo "./bin/$ELFLOADERNAME ./bin/ld24warmup" > run.sh
+echo "./bin/$ELFLOADERNAME ./bin/pong3d" > run.sh
 chmod +x run.sh
 
 popd
