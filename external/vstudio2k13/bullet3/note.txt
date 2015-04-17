@@ -1,0 +1,10 @@
+Steps to build the libs:
+
+1. Download the source package from the bullet web site
+2. Extract, build libraries (only BulletCollision, BulletDynamic, BulletSoftBody and LinearMath) in debug AND release mode
+    - Before building, change the code generation setting (c/c++ > Generation de code > Bibliotheque runtime) pour mettre DLL de deboguage multithread
+3. Take the .lib in the lib and bin folder, copy to external\vstudio2k10\bullet-2.80\lib
+4. Take content of the src folder and copy to external\vstudio2k10\bullet-2.80\include
+5. Remove all .cpp recursively from the include folder
+    find . -iname "*.cpp" -exec rm {} \;
+6. Voila!
