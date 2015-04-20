@@ -58,6 +58,7 @@ solution "ld32warmup"
       -- Add the current directory the .so search path
       linkoptions { "-Wl,-R." }
       linkoptions { "-Wl,-R./bin" }
+      buildoptions { "-std=c++11" }
       -- needed, as by default on arch the default elf interpreter is /lib/ld-linux-x86-64.so.2
       -- instead of /lib64/ld-linux-x86-64.so.2 that seems to be used on others distro (at least
       -- ubuntu, but is also available on arch)
